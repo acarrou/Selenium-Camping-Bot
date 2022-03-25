@@ -17,7 +17,7 @@ number_of_days = 5
 camp_site_num = "APA09"
 
 email_login = "adriencarrou@gmail.com"
-password_login = "null"
+password_login = "ForTesting12345"
 credit_card = "1234567890123456"
 cc_exp_month = "12"
 cc_exp_year = "24"
@@ -60,9 +60,16 @@ add_to_cart = driver.find_element(by=By.XPATH, value="//*[@id='tabs-panel-0']/di
 add_to_cart.click();
 
 #Login to Account
-'''email = driver.find_element(by=By.ID, value="email")
+driver.implicitly_wait(3)
+email = driver.find_element(by=By.ID, value="email")
 password = driver.find_element(by=By.ID, value="rec-acct-sign-in-password")
 email.send_keys(email_login)
 password.send_keys(password_login)
-SignIn = driver.find_element(by=By.CLASS_NAME, value="sarsa-button rec-acct-sign-in-btn sarsa-button-primary sarsa-button-lg sarsa-button-fit-container")
-SignIn.click()'''
+SignIn = driver.find_element(by=By.XPATH, value="/html/body/div[4]/div/div/div/div[2]/div/div/div[2]/form/button")
+SignIn.click()
+
+driver.implicitly_wait(3)
+AccessButton = driver.find_element(by=By.XPATH, value="//*[@id='accessibility-modal-alert']/div/div/div/div/div/div/div/button[2]")
+AccessButton.click()
+
+
