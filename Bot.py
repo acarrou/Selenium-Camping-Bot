@@ -2,6 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
 import time
 
 from telegram.ext.updater import Updater
@@ -14,7 +15,6 @@ options.add_experimental_option("detach", True)
 
 campground_link = "https://www.recreation.gov/camping/campgrounds/233116"
 #campground_link = "https://www.recreation.gov/camping/campgrounds/233116"
-ChromeWebDriverPath = r"C:\chromedriver_win32\chromedriver.exe"
 
 #----Important----
 camp_month = "Oct" #Three letter month example: Apr, Jun, Mar...
@@ -35,7 +35,12 @@ cc_exp_year = "24"
 cvv = "123"
 
 # create a new instance of chrome for linux
+#driver_path = "/usr/bin/chromedriver"
+#driver = webdriver.Chrome(options=options, service=Service(driver_path))
 #driver = webdriver.Chrome(options=options, service=Service(ChromeDriverManager().install()))
+
+# create a new instance of chrome for Windows
+ChromeWebDriverPath = r"C:\chromedriver_win32\chromedriver.exe"
 driver = webdriver.Chrome(executable_path=ChromeWebDriverPath) #For Windows
 
 # go to the website
