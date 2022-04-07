@@ -1,18 +1,11 @@
-# create selenium bot that make a reservation on a website
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.chrome.service import Service
-from webdriver_manager.chrome import ChromeDriverManager
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.ui import WebDriverWait
 from selenium.common.exceptions import NoSuchElementException
 
 from telegram.ext.updater import Updater
 from telegram.update import Update
 from telegram.ext.callbackcontext import CallbackContext
 from telegram.ext.commandhandler import CommandHandler
-from telegram.ext.messagehandler import MessageHandler
-from telegram.ext.filters import Filters
 
 options = webdriver.ChromeOptions()
 options.add_experimental_option("detach", True)
@@ -48,8 +41,6 @@ driver.get(campground_link)
 # wait for the page to load
 button = driver.find_element(by=By.CLASS_NAME, value="sarsa-button.sarsa-modal-close-button.sarsa-button-subtle.sarsa-button-md")
 button.click()
-
-#WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, f"//button[@aria-label='{camp_month} {camp_day}, 2022 - Site {camp_site_num} is available']")))
 
 while True:
     try:
