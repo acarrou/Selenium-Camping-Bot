@@ -2,6 +2,8 @@
 A bot to reserve camping locations that always get reserved >:(
 
 ## Dependencies
+Use the setup.sh script by doing `bash setup.sh` in your terminal </br>
+OR run these installs in Windows
 pip install these: </br>
 `pip install selenium` </br>
 `pip install python-telegram-bot` </br>
