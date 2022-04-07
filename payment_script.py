@@ -1,7 +1,4 @@
 
-
-
-
 #/html/body/div[14]/div/div/div/div[2]/button[1]
 
 '''driver.implicitly_wait(10)

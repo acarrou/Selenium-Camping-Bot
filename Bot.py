@@ -1,6 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException
+import time
 
 from telegram.ext.updater import Updater
 from telegram.update import Update
@@ -59,6 +60,8 @@ while True:
         driver.execute_script("window.scrollTo(0, 1000)")
         break
     except NoSuchElementException:
+        driver.refresh()
+        time.sleep(3)
         continue
 
 '''
