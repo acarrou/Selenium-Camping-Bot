@@ -17,8 +17,12 @@ campground_link = "https://www.recreation.gov/camping/campgrounds/233116"
 #campground_link = "https://www.recreation.gov/camping/campgrounds/233116"
 
 #----Important----
-camp_month = "Oct" #Three letter month example: Apr, Jun, Mar...
+'''camp_month = "Oct" #Three letter month example: Apr, Jun, Mar...
 camp_day = "21"
+number_of_days = 3'''
+
+camp_month = "Apr" #Three letter month example: Apr, Jun, Mar...
+camp_day = "15"
 number_of_days = 3
 
 #----Less Important----
@@ -48,6 +52,7 @@ driver.get(campground_link)
 # wait for the page to load
 button = driver.find_element(by=By.CLASS_NAME, value="sarsa-button.sarsa-modal-close-button.sarsa-button-subtle.sarsa-button-md")
 button.click()
+driver.execute_script("window.scrollTo(0, 750)")
 
 while True:
     try:
@@ -63,11 +68,10 @@ while True:
             camp_day += 1
             number_of_days -= 1
             camp_day = str(camp_day)
-        driver.execute_script("window.scrollTo(0, 1000)")
         break
     except NoSuchElementException:
         driver.refresh()
-        time.sleep(3)
+        time.sleep(10)
         continue
 
 '''
